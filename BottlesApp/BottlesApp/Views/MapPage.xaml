@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:BottlesApp.Controls"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="BottlesApp.Views.MapPage"
+             xmlns:map="clr-namespace:Xamarin.Forms.GoogleMaps.Clustering;assembly=Xamarin.Forms.GoogleMaps.Clustering"
+             xmlns:searchbar="clr-namespace:BottlesApp.Controls">
+    <Grid>
+        <controls:CustomClusteredMap x:Name="map"
+                          IsShowingUser="True"
+                          MapType="Street"
+                          IsEnabled="True" 
+                          IsVisible="True"
+                          ClusterClickedCommand="{Binding ClusterClickedCommand}"
+                          PinClickedCommand="{Binding PinClickedCommand}" 
+                          FoundedPin="{Binding FoundedPin}"/>
+        <searchbar:CustomSearchBar Margin="8" VerticalOptions="Start" MoveToUserClicked="CustomSearchBar_MoveToUserClicked"/>
+    </Grid>
+
+</ContentPage>

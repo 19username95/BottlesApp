@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BottlesApp.Controls.CustomButton"
+             BackgroundColor="{StaticResource BackgroundColor}">
+    <ContentView.Content>
+        <Frame CornerRadius="8" 
+               HasShadow="True"
+               Margin="5"
+               Padding="8, 12, 12, 12"
+               HorizontalOptions="FillAndExpand"
+               BackgroundColor="{StaticResource CustomButtonBackgroundColor}"
+               BorderColor="{StaticResource CustomButtonBorderColor}">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </Frame.GestureRecognizers>
+            <StackLayout Orientation="Horizontal">
+                <Image x:Name="buttonImage" Margin="5, 4, 8, 4"/>
+                <Label x:Name="buttonLabel" VerticalTextAlignment="Center" 
+                       TextColor="{StaticResource CustomButtonTextColor}" FontSize="16"/>
+            </StackLayout>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

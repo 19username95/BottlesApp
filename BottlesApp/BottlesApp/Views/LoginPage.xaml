@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:BottlesApp.Controls"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="BottlesApp.Views.LoginPage"
+             BackgroundColor="{StaticResource BackgroundColor}">
+    <StackLayout Grid.Row="1" VerticalOptions="Center" Spacing="15">
+
+        <Label Margin="10" Text="Invalid login or password!" TextColor="DarkRed">
+            <Label.Triggers>
+                <DataTrigger Binding="{Binding IsLoginInvalid}" Value="false" TargetType="Label">
+                    <Setter Property="Text" Value=""/>
+                </DataTrigger>
+            </Label.Triggers>
+        </Label>
+
+        <Frame Padding="10,5,10,5" HasShadow="True" CornerRadius="8" Margin="10">
+            <Entry Text="{Binding Username, Mode=OneWayToSource}" Placeholder="Enter the username" />
+        </Frame>
+
+        <Frame Padding="10,5,10,5" HasShadow="True" CornerRadius="8" Margin="10">
+            <Entry Text="{Binding Password, Mode=OneWayToSource}" IsPassword="true" Placeholder="Enter the password" VerticalOptions="StartAndExpand" />
+        </Frame>
+        
+        <controls:CustomButton Margin="10" TappedCommand="{Binding LoginCommand}" ButtonLabel="Submit" ButtonImage="ic_login_button"/>
+       
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="BottlesApp.Views.AboutPage"
+             Style="{StaticResource AboutPageStyle}">
+    <StackLayout>
+        <Frame CornerRadius="8" 
+               Margin="0,-6,0,15" Padding="10" 
+               BackgroundColor="{StaticResource TopBarColor}"
+               HasShadow="True">
+            <Label Text="ABOUT US" 
+                   Style="{StaticResource TitleLabelStyle}" 
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Center"/>
+        </Frame>
+
+        <ScrollView Grid.Row="1">
+            <StackLayout>
+                <Frame 
+               Margin="8,5,8,2" Padding="8" 
+               CornerRadius="12" HasShadow="True" 
+               OutlineColor="{StaticResource AboutPageOutlineColor}" 
+               BorderColor="{StaticResource AboutPageFramesBorderColor}" 
+               BackgroundColor="{StaticResource AboutPageFramesBackgroundColor}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".2*"/>
+                            <ColumnDefinition Width=".8*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="ic_backpack"/>
+                        <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center" 
+                       FontAttributes="Bold" Grid.Column="1"
+                       Text="Travel with your bottle using our application" />
+                    </Grid>
+                </Frame>
+                <Frame
+               Margin="8,2,8,2" Padding="8" 
+               CornerRadius="12" HasShadow="True"
+               OutlineColor="{StaticResource AboutPageOutlineColor}" 
+               BorderColor="{StaticResource AboutPageFramesBorderColor}" 
+               BackgroundColor="{StaticResource AboutPageFramesBackgroundColor}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".2*"/>
+                            <ColumnDefinition Width=".8*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="ic_search.png"></Image>
+                        <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center" 
+                       FontAttributes="Bold" Grid.Column="1"
+                       Text="Search for the closest water sources"/>
+                    </Grid>
+                </Frame>
+                <Frame
+               Margin="8,2,8,2" Padding="8" 
+               CornerRadius="12" HasShadow="True" 
+               OutlineColor="{StaticResource AboutPageOutlineColor}" 
+               BorderColor="{StaticResource AboutPageFramesBorderColor}" 
+               BackgroundColor="{StaticResource AboutPageFramesBackgroundColor}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".2*"/>
+                            <ColumnDefinition Width=".8*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="ic_bottle.png"></Image>
+                        <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                       FontAttributes="Bold" Grid.Column="1"
+                       Text="Process tracking. You may watch the amount of the carbon you have saved according to the bottles saved"/>
+                    </Grid>
+                </Frame>
+                <Frame
+               Margin="8,2,8,5" Padding="8" 
+               CornerRadius="12" HasShadow="True" 
+               OutlineColor="{StaticResource AboutPageOutlineColor}" 
+               BorderColor="{StaticResource AboutPageFramesBorderColor}" 
+               BackgroundColor="{StaticResource AboutPageFramesBackgroundColor}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".2*"/>
+                            <ColumnDefinition Width=".8*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="ic_map.png"></Image>
+                        <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center" 
+                       FontAttributes="Bold" Grid.Column="1"
+                       Text="Add your own points into the map. Send requests for the addition to the administrator. After the review the points willbe probably appear on the map"/>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

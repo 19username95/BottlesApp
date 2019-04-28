@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
+             x:Class="BottlesApp.App"
+             xmlns:fonts="clr-namespace:BottlesApp.Recources.Fonts">
+	<Application.Resources>
+
+		<!-- Application resource dictionary -->
+        
+        <Style x:Key="AboutPageStyle" TargetType="ContentPage">
+            <Setter Property="BackgroundColor"
+                    Value="#edefee"/>
+        </Style>
+
+        <Color x:Key="BackgroundColor">#edefee</Color>
+        <Color x:Key="HeadingTextColor">#d91f38</Color>
+        <Color x:Key="NormalTextColor">#8a8a8a</Color>
+        <Color x:Key="TopBarColor">#f4f4f4</Color>
+        <Color x:Key="TabBarColor">#d2e8eb</Color>
+        <Color x:Key="TitleBarColor">#f4f4f4</Color>
+        
+        <Color x:Key="AboutPageFramesBackgroundColor">White</Color>
+        <Color x:Key="AboutPageFramesBorderColor">White</Color>
+        <Color x:Key="AboutPageOutlineColor">Black</Color>
+        
+        <Color x:Key="CustomButtonBackgroundColor">#f4f4f4</Color>
+        <Color x:Key="CustomButtonBorderColor">#f4f4f4</Color>
+        <Color x:Key="CustomButtonTextColor">#777777</Color>
+        
+        <Color x:Key="TextIntoCircleColor">#758c97</Color>
+
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="{x:Static fonts:Fonts.CustomFont}"/>
+        </Style>
+
+        <Style TargetType="Entry">
+            <Setter Property="FontFamily" Value="{x:Static fonts:Fonts.CustomFont}"/>
+        </Style>
+
+        <Style x:Key="TitleLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="{StaticResource HeadingTextColor}"/>
+        </Style>
+        
+	</Application.Resources>
+</prism:PrismApplication>

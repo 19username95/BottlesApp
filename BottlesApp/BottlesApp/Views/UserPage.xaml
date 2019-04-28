@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="BottlesApp.Views.UserPage"
+             xmlns:controls="clr-namespace:BottlesApp.Controls"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             BackgroundColor="{StaticResource BackgroundColor}">
+    <ScrollView>
+    <StackLayout Spacing="0">
+
+        <Frame CornerRadius="8" Margin="0,-6,0,15" Padding="10" BackgroundColor="{StaticResource TitleBarColor}" HasShadow="True">
+            <Label Text="{Binding Title}" Style="{StaticResource TitleLabelStyle}" 
+                   VerticalOptions="Center" HorizontalOptions="Center"/>
+        </Frame>
+
+        <Grid HorizontalOptions="EndAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="167"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Padding="8,2,2,2">
+                <skia:SKCanvasView PaintSurface="OnCanvasViewPaintSurface"/>
+                <StackLayout Padding="15" HorizontalOptions="FillAndExpand" VerticalOptions="Fill">
+                    <Image Source="ic_savedbottle.png" 
+                           HorizontalOptions="Center" VerticalOptions="Center" 
+                           HeightRequest="50" WidthRequest="50"/>
+                    <Label Text="BOTTLES SAVED" 
+                           HorizontalTextAlignment="Center"
+                           HorizontalOptions="Center" VerticalOptions="Center" 
+                           TextColor="{StaticResource TextIntoCircleColor}" 
+                           FontSize="16" FontAttributes="Bold"/>
+                    <Label Text="{Binding SavedBottles}" 
+                           HorizontalOptions="Center" VerticalOptions="Center" 
+                           TextColor="{StaticResource HeadingTextColor}" 
+                           FontSize="Large" FontAttributes="Bold"/>
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Column="1" Padding="2,2,8,2">
+                <skia:SKCanvasView PaintSurface="OnCanvasViewPaintSurface"/>
+                <StackLayout Padding="15">
+                    <Image Source="ic_co2.png" 
+                           HeightRequest="50" WidthRequest="50"
+                           VerticalOptions="Center" HorizontalOptions="Center"/>
+                        <Label Text="CARBONE SAVED" 
+                           HorizontalTextAlignment="Center"
+                           HorizontalOptions="Center" VerticalOptions="Center" 
+                           TextColor="{StaticResource TextIntoCircleColor}"
+                           FontSize="16" FontAttributes="Bold"/>
+                    <Label Text="{Binding SavedCarbone}" 
+                           HorizontalOptions="Center" VerticalOptions="Center" 
+                           TextColor="{StaticResource HeadingTextColor}" 
+                           FontSize="Large" FontAttributes="Bold"/>
+                </StackLayout>
+            </Grid>
+        </Grid>
+
+        <controls:CustomButton ButtonLabel="Favourite points" ButtonImage="ic_star.png" 
+                               TappedCommand="{Binding FavouritePinsCommand}"/>
+        <controls:CustomButton ButtonLabel="Refills history" ButtonImage="ic_history.png" 
+                               TappedCommand="{Binding HistoryCommand}"/>
+        <controls:CustomButton ButtonLabel="Settings" ButtonImage="ic_settings.png" 
+                               TappedCommand="{Binding SettingsCommand}"/>
+
+        <Frame  x:Name="signOutFrame"
+                CornerRadius="8" 
+                BackgroundColor="{StaticResource TitleBarColor}" 
+                HasShadow="True"
+                Margin="5,19,5,5">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding LogoutCommand}"/>
+            </Frame.GestureRecognizers>
+            
+            <Label HorizontalOptions="Center" VerticalOptions="Center" Text="Sign out" 
+                   TextColor="{StaticResource HeadingTextColor}" 
+                   FontAttributes="Bold"
+                   FontSize="16"/>
+        </Frame>
+
+    </StackLayout>
+    </ScrollView>
+</ContentPage>

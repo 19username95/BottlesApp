@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BottlesApp.Controls.CustomSearchBar">
+    
+    <Frame CornerRadius="8" Padding="10,4,15,4" Margin="12" HasShadow="True">
+        <StackLayout Orientation="Horizontal" Spacing="15">
+            <Entry Text="{Binding SearchString, Mode=OneWayToSource}" 
+                   Placeholder="Search" PlaceholderColor="Gray" 
+                   FontSize="17" HorizontalOptions="FillAndExpand"/>
+            <Image Source="ic_googlesearch" HeightRequest="18" WidthRequest="20">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SearchCommand}"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Image Source="ic_local" HeightRequest="17" WidthRequest="17" >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+    </Frame>
+</ContentView>

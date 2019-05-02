@@ -8,13 +8,14 @@ using Android.Views;
 using Prism;
 using Prism.Ioc;
 using System;
+using System.Threading.Tasks;
 
 namespace BottlesApp.Droid
 {
     [Activity(Label = "BottlesApp", Icon = "@mipmap/ic_launcher", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
-        protected override void OnCreate(Bundle bundle)
+        protected override async void OnCreate(Bundle bundle)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
@@ -30,7 +31,15 @@ namespace BottlesApp.Droid
             LoadApplication(new App(new AndroidInitializer()));
             // hide status bar
             Window.AddFlags(WindowManagerFlags.Fullscreen);
-
+            //check permission
+            const string permission = Manifest.Permission.AccessFineLocation;
+            do
+            {
+                ActivityCompat.RequestPermissions(this, new String[] { Manifest.Permission.AccessCoarseLocation, Manifest.Permission.AccessFineLocation }, 0);
+                // System.Diagnostics.Debug.WriteLine("BLYAAAAAAAAAAA!!");
+                await Task.Delay(3000);
+            }
+            while (ContextCompat.CheckSelfPermission(this, permission) != Permission.Granted);
 
         }
 
